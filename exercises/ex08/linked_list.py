@@ -36,7 +36,13 @@ def max(head: Node | None) -> int:
     if head.next is None:  # If there are no other values left in the list.
         return head.value
     else:
-        return max(head.next)
+        nextmax = max(head.next)
+        if (
+            head.value > nextmax
+        ):  # Another if/else statement to account for list size greater than 1.
+            return head.value
+        else:
+            return nextmax
 
 
 def linkify(items: list[int]) -> Node | None:
@@ -52,5 +58,7 @@ def scale(head: Node | None, factor: int) -> Node | None:
     """Scalar multiplication for a linked list."""
     if head is None:
         return None
-    newhead = Node(head.value * factor, scale(head.next, factor))
+    newhead = Node(
+        head.value * factor, scale(head.next, factor)
+    )  # Creating a new linked list.
     return newhead
