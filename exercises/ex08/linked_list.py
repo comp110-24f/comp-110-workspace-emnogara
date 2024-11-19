@@ -35,7 +35,8 @@ def max(head: Node | None) -> int:
         raise ValueError("Cannot call max with None")
     if head.next is None:  # If there are no other values left in the list.
         return head.value
-    return max(head.next)
+    else:
+        return max(head.next)
 
 
 def linkify(items: list[int]) -> Node | None:
@@ -47,10 +48,9 @@ def linkify(items: list[int]) -> Node | None:
     return head
 
 
-def scale(head: Node | None, factor: int) -> None:
+def scale(head: Node | None, factor: int) -> Node | None:
     """Scalar multiplication for a linked list."""
     if head is None:
         return None
-    head.value *= factor  # Multiplying each node value by a scalar.
-    scale(head.next, factor)
-    return None
+    newhead = Node(head.value * factor, scale(head.next, factor))
+    return newhead
