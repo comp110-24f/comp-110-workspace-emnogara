@@ -1,3 +1,5 @@
+from __future__ import annotations
+
 """Creating a Node Class and Sum Function."""
 
 __author__ = "730670853"
