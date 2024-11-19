@@ -1,3 +1,5 @@
+from __future__ import annotations
+
 """Creating a node class and related functions."""
 
 __author__ = "730670853"
@@ -10,8 +12,12 @@ class Node:
     next: Node | None
 
     def __init__(self, val: int, next: Node | None):
+        """Initializing the Node class."""
         self.value = val
-        self.next = next
+        if next is None:
+            self.next = None
+        else:
+            self.next = next
 
 
 def value_at(head: Node | None, index: int) -> int:
@@ -27,9 +33,7 @@ def max(head: Node | None) -> int:
     """Finds the maximum of a linked list."""
     if head is None:
         raise ValueError("Cannot call max with None")
-    if (
-        head.next is None
-    ):  # If there are no other values left in the list to compare with.
+    if head.next is None:  # If there are no other values left in the list.
         return head.value
     return max(head.next)
 
