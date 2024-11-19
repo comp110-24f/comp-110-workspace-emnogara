@@ -1,6 +1,6 @@
-from __future__ import annotations
-
 """Creating a node class and related functions."""
+
+from __future__ import annotations
 
 __author__ = "730670853"
 
